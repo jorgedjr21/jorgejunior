@@ -24,7 +24,6 @@
 <div id="preloader">
     <div id="status">&nbsp;</div>
 </div>
-
 <!-- Fixed navbar -->
 <div class="navbar main-menu navbar-default navbar-fixed-top" role="navigation">
     <div class="container">

@@ -44,12 +44,27 @@ config.vendor_path_css = [
     config.assets_path+"/css/style.min.css"
 ];
 
+config.build_path_img = config.build_path+"/images";
+gulp.task('copy-img',function(){
+    gulp.src([config.assets_path+"/images/**/*"])
+        .pipe(gulp.dest(config.build_path_img))
+        .pipe(livereload());
+});
+
+config.build_path_fonts = config.build_path+"/fonts";
+gulp.task('copy-fonts',function(){
+    gulp.src([config.assets_path+"/fonts/**/*"])
+        .pipe(gulp.dest(config.build_path_fonts))
+        .pipe(livereload());
+});
+
 gulp.task('clear-build-folder',function(){
     clean.sync(config.build_path);
 });
 
 
 gulp.task('default',['clear-build-folder'],function(){
+    gulp.start('copy-img','copy-fonts');
     elixir(function(mix){
         mix.styles(config.vendor_path_css.concat([config.assets_path+"/css/**/*.css"]),
             'public/css/all.css',config.assets_path);
