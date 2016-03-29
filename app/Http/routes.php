@@ -11,11 +11,18 @@
 |
 */
 
-Route::group(['domain'=>'www'.config('app.url')],function(){
+Route::group(['domain'=>'www.'.config('app.url')],function(){
 
     Route::get('/', function () {
         return view('welcome');
     });
+
+    Route::group(['prefix'=>'tfg'],function(){
+        Route::get('/',function(){
+            return view('tfg');
+        });
+    });
+
 });
 
 Route::group(['domain'=>config('app.url')],function(){
@@ -23,12 +30,11 @@ Route::group(['domain'=>config('app.url')],function(){
     Route::get('/', function () {
         return view('welcome');
     });
-});
 
-Route::group(['domain'=>'tfg.'.config('app.url')],function(){
-
-    Route::get('/', function () {
-        return view('tfg');
+    Route::group(['prefix'=>'tfg'],function(){
+       Route::get('/',function(){
+          return view('tfg');
+       });
     });
 });
 
