@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="mirchu team make this design. mirchu web and technology blog">
     <meta name="author" content="Waqas Hussain">
-    <link rel="icon" href="assets/icons/favicon.ico">
+    <link rel="icon" href="{{secure_asset("assets/icons/favicon.ico")}}">
     <title>Jorge Junior - Página Pessoal</title>
 
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{elixir('css/all.css')}}">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="assets/js/html5shiv.min.js"></script>
-    <script src="assets/js/respond.min.js"></script>
+    <script src="{{secure_asset('assets/js/html5shiv.min.js')}}"></script>
+    <script src="{{secure_asset('assets/js/respond.min.js')}}"></script>
     <![endif]-->
 </head>
 <body>
@@ -29,7 +29,7 @@
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-            <a class="navbar-brand" href="" title="MaterialStrap"><img src="{{asset('build/images/JJ.png')}}" alt="logo" title="MaterialStrap" /></a> </div>
+            <a class="navbar-brand" href="" title="MaterialStrap"><img src="{{secure_asset('build/images/JJ.png')}}" alt="logo" title="MaterialStrap" /></a> </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right" id="menu">
                 <li><a data-scroll data-options="easing: easeOutQuart" href="#banner">Home</a></li>
@@ -61,7 +61,7 @@
             <div class="portfolio-grid">
                 <div class="col-md-4 col-sm-6 wow bounceIn" data-wow-duration="1s" data-wow-delay="1s">
                     <a href="#" data-target="#portfolio1" class="thumbnail hcaption">
-                        <img src="{{asset('build/images/logo_guimo_black320.png')}}" alt="Guimo" title="Guimo" />
+                        <img src="{{secure_asset('build/images/logo_guimo_black320.png')}}" alt="Guimo" title="Guimo" />
                     </a>
                     <div id="portfolio1" class="hide-none hover-text">
                         <h5>Guimo</h5>
@@ -76,7 +76,7 @@
             <div class="portfolio-grid">
                 <div class="col-md-4 col-sm-6 wow bounceIn" data-wow-duration="1s" data-wow-delay="1s">
                     <a href="#" data-target="#portfolio2" class="thumbnail hcaption">
-                        <img src="{{asset('build/images/tclogofw.png')}}" alt="Track&Care" title="Track&Care" />
+                        <img src="{{secure_asset('build/images/tclogofw.png')}}" alt="Track&Care" title="Track&Care" />
                     </a>
                     <div id="portfolio2" class="hide-none hover-text">
                         <h5>Track&Care</h5>
