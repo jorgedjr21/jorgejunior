@@ -11,6 +11,12 @@
 |
 */
 
+$api = app('Dingo\Api\Routing\Router');
+
+$api->version('v1', function ($api) {
+    $api->get('users/{user_id}', 'App\API\Controllers\UserController@show');
+});
+
 Route::group(['domain'=>'www.'.config('app.url')],function(){
 
     Route::get('/', function () {
@@ -22,7 +28,6 @@ Route::group(['domain'=>'www.'.config('app.url')],function(){
             return view('tfg');
         });
     });
-
 });
 
 Route::group(['domain'=>config('app.url')],function(){
