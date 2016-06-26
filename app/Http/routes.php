@@ -11,11 +11,7 @@
 |
 */
 
-$api = app('Dingo\Api\Routing\Router');
 
-$api->version('v1', function ($api) {
-    $api->get('users/{user_id}', 'App\API\Controllers\UserController@show');
-});
 
 Route::group(['domain'=>'www.'.config('app.url')],function(){
 
@@ -23,11 +19,6 @@ Route::group(['domain'=>'www.'.config('app.url')],function(){
         return view('welcome');
     });
 
-    Route::group(['prefix'=>'tfg'],function(){
-        Route::get('/',function(){
-            return view('tfg');
-        });
-    });
 });
 
 Route::group(['domain'=>config('app.url')],function(){
@@ -35,12 +26,27 @@ Route::group(['domain'=>config('app.url')],function(){
     Route::get('/', function () {
         return view('welcome');
     });
+});
 
-    Route::group(['prefix'=>'tfg'],function(){
-       Route::get('/',function(){
-          return view('tfg');
-       });
+Route::group(['domain'=>'tfg.'.config('app.url')],function(){
+
+    $api = app('Dingo\Api\Routing\Router');
+
+    $api->version('v1', function ($api) {
+        $api->get('users/{user_id}', 'App\API\Controllers\UserController@show');
     });
+
+    Route::get('/',function(){
+        return view('tfg');
+    });
+
+    Route::group(['middleware' => ['web']], function () {
+        //
+        Route::get('/login',['as'=>'user.loginpage','uses'=>'UserController@loginpage']);
+
+        route::post('/login',['as'=>'users.login','uses'=>'UserController@login']);
+    });
+
 });
 
 /*
