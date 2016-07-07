@@ -48,7 +48,7 @@
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
                         <label>
-                            <input type="checkbox"> Permanecer logado
+                            <input type="checkbox" name="remember"> Permanecer logado
                         </label>
                     </div>
                 </div>

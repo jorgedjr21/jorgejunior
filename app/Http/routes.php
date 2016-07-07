@@ -44,7 +44,9 @@ Route::group(['domain'=>'tfg.'.config('app.url')],function(){
         //
         Route::get('/login',['as'=>'user.loginpage','uses'=>'UserController@loginpage']);
 
-        route::post('/login',['as'=>'users.login','uses'=>'UserController@login']);
+        Route::post('/login',['as'=>'users.login','uses'=>'UserController@login']);
+
+        Route::get('/dashboard',['as'=>'user.dashboard','uses'=>'UserController@dashboard']);
     });
 
 });
