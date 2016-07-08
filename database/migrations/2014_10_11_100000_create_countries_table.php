@@ -16,6 +16,7 @@ class CreateCountriesTable extends Migration
             $table->increments('id');
             $table->string('name',60);
             $table->string('code',5);
+            $table->boolean('avaible')->default(false);
         });
     }
 

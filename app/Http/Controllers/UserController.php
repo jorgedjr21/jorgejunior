@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Auth;
+use App\Country;
 
 class UserController extends Controller
 {
@@ -12,7 +13,7 @@ class UserController extends Controller
 
 
     public function loginpage(){
-        return view('login');
+        return view('tfg_base/login');
     }
 
     public function login(Request $request){
@@ -29,6 +30,12 @@ class UserController extends Controller
         }
     }
 
+
+    public function registerpage(){
+        $countries = Country::where('avaible',1)->get();
+
+        return view('tfg_base/register',['countries'=>$countries]);
+    }
     public function dashboard(){
         return view('dashboard/index');
     }

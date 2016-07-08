@@ -37,7 +37,7 @@ Route::group(['domain'=>'tfg.'.config('app.url')],function(){
     });
 
     Route::get('/',function(){
-        return view('tfg');
+        return view('tfg_base/welcome');
     });
 
     Route::group(['middleware' => ['web']], function () {
@@ -47,7 +47,12 @@ Route::group(['domain'=>'tfg.'.config('app.url')],function(){
         Route::post('/login',['as'=>'users.login','uses'=>'UserController@login']);
 
         Route::get('/dashboard',['as'=>'user.dashboard','uses'=>'UserController@dashboard']);
+
+        Route::get('/register',['as'=>'user.registerpage','uses'=>'UserController@registerpage']);
+
+        Route::post('/register',['as'=>'user.register','uses'=>'UserController@register']);
     });
+
 
 });
 
