@@ -60,7 +60,7 @@
             </div>
         </form>
 
-        <a href="register.html" class="text-center">Register a new membership</a>
+        <a href="{{route('user.registerpage')}}" class="text-center">Registre-se agora mesmo!</a>
 
     </div>
     <!-- /.login-box-body -->

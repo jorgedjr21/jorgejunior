@@ -36,6 +36,10 @@ class UserController extends Controller
 
         return view('tfg_base/register',['countries'=>$countries]);
     }
+
+    public function register(Request $request){
+        dd($request->all());
+    }
     public function dashboard(){
         return view('dashboard/index');
     }

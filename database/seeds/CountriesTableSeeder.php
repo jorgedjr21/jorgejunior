@@ -12,6 +12,6 @@ class CountriesTableSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('countries')->insert(['name'=>'Brasil','code'=>'BR']);
+        DB::table('countries')->insert(['name'=>'Brasil','code'=>'BR','avaible'=>true]);
     }
 }

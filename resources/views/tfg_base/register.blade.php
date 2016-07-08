@@ -34,7 +34,7 @@
     <div class="login-box-body">
         <p class="login-box-msg">Logue para acessar o painel de administração</p>
 
-        <form action="{{route('users.register')}}" method="post">
+        <form action="{{route('user.register')}}" method="post">
             {{csrf_field()}}
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" name="name" placeholder="Nome">
