@@ -34,8 +34,13 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right" id="menu">
                 <li><a href="{{url('/')}}">Home</a></li>
-                <li><a href="{{route('user.registerpage')}}">Registrar</a></li>
-                <li><a href="{{route('user.loginpage')}}">Login</a></li>
+                @if(is_null($user))
+                    <li><a href="{{route('user.registerpage')}}">Registrar</a></li>
+                    <li><a href="{{route('user.loginpage')}}">Login</a></li>
+                    @else
+                    <li><a href="{{route('user.profile')}}">{{$user->name}}</a></li>
+                    <li><a href="{{route('user.logout')}}">Sair</a></li>
+                        @endif
                 <!--<li><a data-scroll data-options="easing: easeOutQuart" href="#contact">Contact</a></li>-->
             </ul>
         </div>

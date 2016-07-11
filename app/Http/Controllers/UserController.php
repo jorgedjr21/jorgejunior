@@ -14,6 +14,14 @@ class UserController extends Controller
 {
     //
 
+    public function welcomepage(){
+        $user = null;
+        if(Auth::check()){
+            $user = Auth::user();
+        }
+        return view('tfg_base/welcome',['user'=>$user]);
+    }
+
 
     public function loginpage(){
         return view('tfg_base/login');
@@ -79,12 +87,18 @@ class UserController extends Controller
 
     }
     public function dashboard(){
+        $user = Auth::user();
+        return view('dashboard/index',['user'=>$user]);
+    }
 
-        if(Auth::check()) {
-            $user = Auth::user();
-            return view('dashboard/index',['user'=>$user]);
-        }else{
-            return redirect('/');
-        }
+    public function profile(){
+        $user = Auth::user();
+        
+        return view('dashboard/profile',['user'=>$user]);
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->intended('/');
     }
 }

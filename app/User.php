@@ -27,4 +27,8 @@ class User extends Authenticatable
     public function country(){
         return $this->belongsTo('App\Country');
     }
+
+    public function devices(){
+        return $this->hasMany('App\Device');
+    }
 }

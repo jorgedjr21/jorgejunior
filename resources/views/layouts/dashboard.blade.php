@@ -70,10 +70,10 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="{{route('user.profile')}}" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="{{route('user.logout')}}" class="btn btn-default btn-flat">Sair</a>
                                 </div>
                             </li>
                         </ul>
@@ -116,7 +116,7 @@
                         <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
                     </ul>
                 </li>
-
+                <li><a href="{{route('user.devices')}}"><i class="fa fa-briefcase"></i> <span>Dispositivos</span></a></li>
                 <li><a href="../../documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
                 <li class="header">LABELS</li>
                 <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>

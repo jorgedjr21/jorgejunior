@@ -12,7 +12,6 @@
 */
 
 
-
 Route::group(['domain'=>'www.'.config('app.url')],function(){
 
     Route::get('/', function () {
@@ -36,21 +35,35 @@ Route::group(['domain'=>'tfg.'.config('app.url')],function(){
         $api->get('users/{user_id}', 'App\API\Controllers\UserController@show');
     });
 
-    Route::get('/',function(){
-        return view('tfg_base/welcome');
-    });
+
 
     Route::group(['middleware' => ['web']], function () {
         //
+
+        Route::get('/',['uses'=>'UserController@welcomepage']);
+
         Route::get('/login',['as'=>'user.loginpage','uses'=>'UserController@loginpage']);
 
         Route::post('/login',['as'=>'users.login','uses'=>'UserController@login']);
 
-        Route::get('/dashboard',['as'=>'user.dashboard','uses'=>'UserController@dashboard']);
+
 
         Route::get('/register',['as'=>'user.registerpage','uses'=>'UserController@registerpage']);
 
         Route::post('/register',['as'=>'user.register','uses'=>'UserController@register']);
+
+    });
+
+    Route::group(['middleware'=>['web','auth']],function(){
+        Route::get('/dashboard',['as'=>'user.dashboard','uses'=>'UserController@dashboard']);
+
+        Route::get('/logout',['as'=>'user.logout','uses'=>'UserController@logout']);
+
+        Route::get('/profile',['as'=>'user.profile','uses'=>'UserController@profile']);
+
+        Route::get('/devices',['as'=>'user.devices','uses'=>'DeviceController@index']);
+
+        Route::get('/devices/new',['as'=>'user.newdevice','uses'=>'DeviceController@newDevice']);
     });
 
 
