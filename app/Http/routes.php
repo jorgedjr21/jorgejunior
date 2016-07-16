@@ -61,9 +61,17 @@ Route::group(['domain'=>'tfg.'.config('app.url')],function(){
 
         Route::get('/profile',['as'=>'user.profile','uses'=>'UserController@profile']);
 
-        Route::get('/devices',['as'=>'user.devices','uses'=>'DeviceController@index']);
+        Route::get('/devices',['as'=>'device.listall','uses'=>'DeviceController@index']);
 
-        Route::get('/devices/new',['as'=>'user.newdevice','uses'=>'DeviceController@newDevice']);
+        Route::get('/devices/new',['as'=>'device.newdevice','uses'=>'DeviceController@newDevice']);
+
+        Route::post('/devices/new',['as'=>'device.savedevice','uses'=>'DeviceController@saveDevice']);
+        
+        Route::get('/devices/{device_id}/edit',['as'=>'device.editform','uses'=>'DeviceController@editForm']);
+
+        Route::put('/devices/{device_id}/edit',['as'=>'device.saveedit','uses'=>'DeviceController@saveEdit']);
+
+        Route::delete('/devices/{device_id}/delete',['as'=>'device.delete','uses'=>'DeviceController@delete']);
     });
 
 
