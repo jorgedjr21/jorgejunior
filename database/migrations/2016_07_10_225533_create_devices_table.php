@@ -18,6 +18,7 @@ class CreateDevicesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('name',60);
             $table->string('dkey',60);
+            $table->index('dkey');
             $table->text('description')->nullable();
             $table->timestamps();
         });

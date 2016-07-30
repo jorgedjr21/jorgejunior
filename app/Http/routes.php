@@ -61,6 +61,7 @@ Route::group(['domain'=>'tfg.'.config('app.url')],function(){
 
         Route::get('/profile',['as'=>'user.profile','uses'=>'UserController@profile']);
 
+        /** DEVICES ROUTES **/
         Route::get('/devices',['as'=>'device.listall','uses'=>'DeviceController@index']);
 
         Route::get('/devices/new',['as'=>'device.newdevice','uses'=>'DeviceController@newDevice']);
@@ -72,6 +73,9 @@ Route::group(['domain'=>'tfg.'.config('app.url')],function(){
         Route::put('/devices/{device_id}/edit',['as'=>'device.saveedit','uses'=>'DeviceController@saveEdit']);
 
         Route::delete('/devices/{device_id}/delete',['as'=>'device.delete','uses'=>'DeviceController@delete']);
+
+        /**DEVICES STREAM ROUTES **/
+        Route::get('devices/{device_id}/streams',['as'=>'device.getStreams','uses'=>'StreamController@getStreams']);
     });
 
 

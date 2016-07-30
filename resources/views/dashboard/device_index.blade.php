@@ -54,7 +54,7 @@
                 </tr>
                 @forelse($devices as $device)
                     <tr>
-                        <td class="text-center">{{$device->name}}</td>
+                        <td class="text-center"><a href="{{route('device.getStreams',['device_id'=>$device->id])}}">{{$device->name}}</a></td>
                         <td class="text-center">{{$device->dkey}}</td>
                         <td class="text-center">{{$device->description}}</td>
                         <td class="text-center"><a href="{{route('device.editform',['device_id'=>$device->id])}}" class="btn btn-block btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Editar Dispositivo"><i class="fa fa-edit fa-lg"></i></a></td>
