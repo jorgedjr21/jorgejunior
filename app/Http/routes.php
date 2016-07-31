@@ -32,8 +32,8 @@ Route::group(['domain'=>'tfg.'.config('app.url')],function(){
     $api = app('Dingo\Api\Routing\Router');
 
     $api->version('v1', function ($api) {
-        $api->get('users/{ukey}/devices',['as'=>'api.devices','uses'=>'App\Api\Controllers\DeviceController@getDevices']);
-        $api->get('users/{ukey}/devices/{dkey}',['as'=>'api.devices','uses'=>'App\Api\Controllers\DeviceController@getDevice']);
+        $api->get('users/{ukey}/devices',['as'=>'api.devices','uses'=>'App\API\Controllers\DeviceController@getDevices']);
+        $api->get('users/{ukey}/devices/{dkey}',['as'=>'api.devices','uses'=>'App\API\Controllers\DeviceController@getDevice']);
     });
 
 
