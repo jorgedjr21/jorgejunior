@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->foreign('country_id')->references('id')->on('countries');
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('ukey',60)->nullable();
+            $table->string('ukey',60)->charset('utf8')->collation('utf8_bin')->nullable();
             $table->index('ukey');
             $table->string('password');
             $table->rememberToken();

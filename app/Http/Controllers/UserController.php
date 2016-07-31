@@ -9,6 +9,7 @@ use App\Country;
 use Validator;
 use App\User;
 use Hash;
+use App\Stream;
 
 class UserController extends Controller
 {
@@ -88,11 +89,18 @@ class UserController extends Controller
     }
     public function dashboard(){
         $user = Auth::user();
-        return view('dashboard/index',['user'=>$user]);
+        $streams = 0;
+        foreach($user->devices as $device){
+            $streams += Stream::where('device_id',$device->id)->count();
+        }
+
+
+        return view('dashboard/index',['user'=>$user,'streams'=>$streams]);
     }
 
     public function profile(){
         $user = Auth::user();
+
         
         return view('dashboard/profile',['user'=>$user]);
     }

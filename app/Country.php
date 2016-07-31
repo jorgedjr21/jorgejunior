@@ -20,6 +20,10 @@ class Country extends Model
         'code'
     ];
 
+    protected $hidden = [
+        'id','avaible'
+    ];
+
     public function users(){
         return $this->belongsToMany('App\User');
     }
