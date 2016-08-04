@@ -54,5 +54,6 @@
     </div>
     <!-- /.box -->
 </section>
+
 <!-- /.content -->
 @endsection

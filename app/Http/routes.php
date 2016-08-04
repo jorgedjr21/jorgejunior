@@ -32,8 +32,11 @@ Route::group(['domain'=>'tfg.'.config('app.url')],function(){
     $api = app('Dingo\Api\Routing\Router');
 
     $api->version('v1', function ($api) {
-        $api->get('users/{ukey}/devices',['as'=>'api.devices','uses'=>'App\API\Controllers\DeviceController@getDevices']);
-        $api->get('users/{ukey}/devices/{dkey}',['as'=>'api.devices','uses'=>'App\API\Controllers\DeviceController@getDevice']);
+        $api->get('/devices/{ukey}',['as'=>'api.devices','uses'=>'App\API\Controllers\DeviceController@getDevices']);
+        $api->get('/devices/{ukey}/{dkey}',['as'=>'api.device','uses'=>'App\API\Controllers\DeviceController@getDevice']);
+        $api->get('/devices/{ukey}/{dkey}/streams',['as'=>'api.devicestream','uses'=>'App\API\Controllers\StreamController@getStream']);
+        $api->post('/devices/{ukey}/{dkey}/streams',['as'=>'api.devicesavestream','uses'=>'App\API\Controllers\StreamController@saveStream']);
+        $api->get('/devices/{ukey}/{dkey}/streams/last',['as'=>'api.devicestream','uses'=>'App\API\Controllers\StreamController@getLast']);
     });
 
 
