@@ -70,7 +70,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="{{route('user.profile')}}" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="{{route('user.profile')}}" class="btn btn-default btn-flat">Perfil</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="{{route('user.logout')}}" class="btn btn-default btn-flat">Sair</a>
@@ -116,7 +116,7 @@
                     </ul>
                 </li>
                 <li><a href="{{route('device.listall')}}"><i class="fa fa-briefcase"></i> <span>Dispositivos</span></a></li>
-                <li><a href="#"><i class="fa fa-book"></i> <span>Documentação de Uso</span></a></li>
+                <li><a href="{{route('user.docs')}}"><i class="fa fa-book"></i> <span>Documentação de Uso</span></a></li>
                 <li class="header">LABELS</li>
                 <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
                 <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>

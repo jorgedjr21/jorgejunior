@@ -16,6 +16,20 @@
 <section class="content">
 
 
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <i class="fa fa-book"></i>
+                    <h3 class="box-title">Documentação da API</h3>
+                </div>
+                <div class="box-body">
+                    <p class="lead text-center text-bold">A documentação para uso da API está disponivel <a href="{{route('user.docs')}}">aqui</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Default box -->
     <div class="row">
         <div class="col-lg-3 col-xs-6">
@@ -34,6 +48,7 @@
             </div>
         </div>
     </div>
+
 
 
 </section>

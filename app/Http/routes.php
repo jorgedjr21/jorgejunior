@@ -67,6 +67,8 @@ Route::group(['domain'=>'tfg.'.config('app.url')],function(){
 
         Route::get('/profile',['as'=>'user.profile','uses'=>'UserController@profile']);
 
+        Route::get('/docs',['as'=>'user.docs','uses'=>'UserController@docs']);
+
         /** DEVICES ROUTES **/
         Route::get('/devices',['as'=>'device.listall','uses'=>'DeviceController@index']);
 

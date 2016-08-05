@@ -98,6 +98,12 @@ class UserController extends Controller
         return view('dashboard/index',['user'=>$user,'streams'=>$streams]);
     }
 
+    public function docs(){
+        $user = Auth::user();
+
+        return view('dashboard/documentation',['user'=>$user]);
+    }
+
     public function profile(){
         $user = Auth::user();
 
