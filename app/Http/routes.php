@@ -33,6 +33,9 @@ Route::group(['domain'=>'tfg.'.config('app.url')],function(){
 
     $api->version('v1', function ($api) {
         $api->get('/devices/{ukey}',['as'=>'api.devices','uses'=>'App\API\Controllers\DeviceController@getDevices']);
+        $api->post('/devices/{ukey}',['as'=>'api.createdevice','uses'=>'App\Api\Controllers\DeviceController@createDevice']);
+        $api->delete('/devices/{ukey}/{dkey}',['as'=>'api.deletedevice','uses'=>'App\Api\Controllers\DeviceController@deleteDevice']);
+        $api->put('/devices/{ukey}/{dkey}',['as'=>'api.editdevice','uses'=>'App\Api\Controllers\DeviceController@editDevice']);
         $api->get('/devices/{ukey}/{dkey}',['as'=>'api.device','uses'=>'App\API\Controllers\DeviceController@getDevice']);
         $api->get('/devices/{ukey}/{dkey}/streams',['as'=>'api.devicestream','uses'=>'App\API\Controllers\StreamController@getStream']);
         $api->post('/devices/{ukey}/{dkey}/streams',['as'=>'api.devicesavestream','uses'=>'App\API\Controllers\StreamController@saveStream']);

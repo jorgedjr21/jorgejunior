@@ -30,6 +30,10 @@
                                 <li><a href="#getDkey" id="getDkey">Onde encontro a <strong>Chave do Dispositivo?</strong></a></li>
                             </ul>
                         </li>
+                        <li>Transmissão de dados</li>
+                        <ul>
+                            <li>O que é transmissão de dados?</li>
+                        </ul>
                     </ol>
                 </div>
             </div>
@@ -76,10 +80,10 @@
             <div class="box box-solid">
                 <div class="box-header with-border">
                     <i class="fa fa-hdd-o"></i>
-                    <h3 class="box-title">Onde encontro a chave do dispositivo?</h3>
+                    <h3 class="box-title">O que é transmissão de dados?</h3>
                 </div>
                 <div class="box-body">
-
+                    A api funciona através do conceito de transmissão de dados, onde o usuário é responsável por transmitir e receber um dado. A transmissão consiste no envio de um dado através das rotas
                 </div>
             </div>
         </div>
