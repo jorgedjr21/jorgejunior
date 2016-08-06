@@ -14,7 +14,7 @@ class DeviceController extends Controller
 
     public function index(){
         $user = Auth::user();
-        $devices = Device::paginate(10);
+        $devices = Device::where('user_id',$user->id)->paginate(10);
         return view('dashboard/device_index',['user'=>$user,'devices'=>$devices]);
     }
 
