@@ -39,7 +39,7 @@ Route::group(['domain'=>'tfg.'.config('app.url')],function(){
         $api->get('/devices/{ukey}/{dkey}',['as'=>'api.device','uses'=>'App\API\Controllers\DeviceController@getDevice']);
         $api->get('/devices/{ukey}/{dkey}/streams',['as'=>'api.devicestream','uses'=>'App\API\Controllers\StreamController@getStream']);
         $api->post('/devices/{ukey}/{dkey}/streams',['as'=>'api.devicesavestream','uses'=>'App\API\Controllers\StreamController@saveStream']);
-        $api->get('/devices/{ukey}/{dkey}/streams/last',['as'=>'api.devicestream','uses'=>'App\API\Controllers\StreamController@getLast']);
+        $api->get('/devices/{ukey}/{dkey}/streams/last',['as'=>'api.devicestreamlast','uses'=>'App\API\Controllers\StreamController@getLast']);
     });
 
 

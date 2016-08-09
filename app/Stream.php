@@ -10,7 +10,7 @@ class Stream extends Model
     protected $table = 'streams';
     protected $fillable = ['device_id','data'];
     protected $hidden = [
-        'device_id'
+        'device_id','id'
     ];
 
     public function device(){

@@ -41,6 +41,9 @@
                         <li>Transmissão de dados</li>
                         <ul>
                             <li><a href="#whatisstream" id="whatisstream">O que é transmissão de dados?</a></li>
+                            <li><a href="#testapi" id="testapi">Existe alguma maneira de testar as rotas e a api?</a></li>
+                            <li><a href="#sendStream" id="sendStream">Fazendo a transmissão de um dado.</a></li>
+                            <li><a href="#getStream" id="getStream">Como recupero os dados transmitidos?</a></li>
                         </ul>
                     </ol>
                 </div>
@@ -173,6 +176,68 @@
                 </div>
             </div>
 
+            <div class="col-lg-12">
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                        <i class="fa fa-hdd-o"></i>
+                        <h3 class="box-title"><a href="#getStream" id="getStream">Como recupero os dados transmitidos?</a></h3>
+                    </div>
+                    <div class="box-body">
+                        <p>É possivel recuperar os dados transmitidos de duas maneiras: </p>
+                        <p><strong>Recuperar todos os dados transmitidos:</strong> para isso, basta fazer uma requisição para a seguinte rota.</strong> <small class="text-danger">é necessário atentar ao método HTTP utilizado</small></p>
+                        <p class="lead text-center text-info"><i><strong>GET </strong>{!! app('Dingo\Api\Routing\UrlGenerator')->version('v1')->route('api.devicestream',['ukey'=>':chavedeusuario','dkey'=>':chavededispositivo']) !!}</i><br></p>
+
+                        <dl class="dl-horizontal">
+                            <dt>Parâmetros: </dt>
+                            <dd>não há</dd>
+                            <dt>Parâmetros de URL:</dt>
+                            <dd><i>:chavedeusuário</i> - chave de usuário disponível através de sua página de perfil</dd>
+                            <dd><i>:chavedodispositivo</i> - chave do dispositivo em questão, que pode ser encontrada na página de dispositivos do usuário ou através das requisições na api</dd>
+                            <dt>Retorna</dt>
+                            <dd>json contendo todos as transmissões realizadas por este dispositivo ou mensagem, caso algum erro ocorra <span class="text-danger">erro ocorra.</span></dd>
+                        </dl>
+                        <pre>{
+  "streams": [
+    {
+      "data": "{\"a\":1,\"b\":2,\"c\":3,\"d\":4,\"e\":5}",
+      "created_at": "2016-08-04 22:32:38",
+      "updated_at": "2016-08-04 22:32:38"
+    },
+    {
+      "data": "{\"teste\":\"testando\"}",
+      "created_at": "2016-08-04 22:32:53",
+      "updated_at": "2016-08-04 22:32:53"
+    }
+  ]
+}
+                        </pre>
+                        <hr>
+                        <p><strong>Recuperar o último dado transmitido:</strong> para isso, basta fazer uma requisição para a seguinte rota.</strong> <small class="text-danger">é necessário atentar ao método HTTP utilizado</small></p>
+                        <p class="lead text-center text-info"><i><strong>GET </strong>{!! app('Dingo\Api\Routing\UrlGenerator')->version('v1')->route('api.devicestreamlast',['ukey'=>':chavedeusuario','dkey'=>':chavededispositivo']) !!}</i><br></p>
+
+                        <dl class="dl-horizontal">
+                            <dt>Parâmetros: </dt>
+                            <dd>não há</dd>
+                            <dt>Parâmetros de URL:</dt>
+                            <dd><i>:chavedeusuário</i> - chave de usuário disponível através de sua página de perfil</dd>
+                            <dd><i>:chavedodispositivo</i> - chave do dispositivo em questão, que pode ser encontrada na página de dispositivos do usuário ou através das requisições na api</dd>
+                            <dt>Retorna</dt>
+                            <dd>json contendo o ultimo dado transmitido ou uma mensagem caso algum <span class="text-danger">erro ocorra.</span></dd>
+                        </dl>
+                        <pre>{
+  "stream": {
+    "data": "teste",
+    "created_at": "2016-08-09 14:48:40",
+    "updated_at": "2016-08-09 14:48:40"
+  }
+}
+                        </pre>
+
+
+                    </div>
+                </div>
+            </div>
+
 
 
         </div>
@@ -180,6 +245,7 @@
 
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12">
+
             <div class="col-lg-12">
                 <div class="box box-solid">
                     <div class="box-header with-border">
@@ -192,6 +258,19 @@
                         <p class="text-bold">Onde posso encontra-la?</p>
                         <p>A chave de dispositivo pode ser encontrada diretamente na página onde são listados todos os dispositivos criados por você. Para acessa-la basta utilizar o menu lateral, ou clicar
                             <a href="{{route('device.listall')}}">aqui</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                        <i class="fa fa-question-circle"></i>
+                        <h3 class="box-title"><a href="#testapi" id="testapi">Existe alguma maneira de testar as rotas e a api?</a></h3>
+                    </div>
+                    <div class="box-body">
+                       <p> Sim! É Recomendado o uso de um cliente REST para testar as requisições e as rotas da api.</p>
+                        <p>Para isso, você pode utilizar o <a href="https://www.getpostman.com" target="_blank">POSTMAN</a> que é um cliente gratuito e bem fácil de usar!</p>
                     </div>
                 </div>
             </div>
@@ -275,6 +354,38 @@
 
                         <p>Os metodos HTTP necessários para fazer a requisição estão em <strong>negrito</strong> antes da rota!</p>
 
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                        <i class="fa fa-hdd-o"></i>
+                        <h3 class="box-title"><a href="#sendStream" id="sendStream">Fazendo a transmissão de um dado.</a></h3>
+                    </div>
+                    <div class="box-body">
+                        <p>Para fazer a transmissão de dados, é necessário fazer uma requisição para a seguinte rota: <small class="text-danger">é necessário atentar ao método HTTP utilizado</small></p>
+                        <p class="lead text-center text-info"><i><strong>POST </strong>{!! app('Dingo\Api\Routing\UrlGenerator')->version('v1')->route('api.devicesavestream',['ukey'=>':chavedeusuario','dkey'=>':chavededispositivo']) !!}</i></p>
+                        <dl class="dl-horizontal">
+                            <dt>Parâmetros: </dt>
+                            <dd><i>data</i> - Dados a serem transmitidos</dd>
+                            <dt>Obs</dt>
+                            <dd>Não existe restrição há formato para o dado enviado, pode ser um json contendo vários dados ou um único dado inteiro, por exemplo!</dd>
+                            <dt>Parâmetros de URL:</dt>
+                            <dd><i>:chavedeusuário</i> - chave de usuário disponível através de sua página de perfil</dd>
+                            <dd><i>:chavedodispositivo</i> - chave do dispositivo em questão, que pode ser encontrada na página de dispositivos do usuário ou através da requisição anterior</dd>
+                            <dt>Retorna</dt>
+                            <dd>json contendo os dados transmitidos ou uma mensagem caso algum<span class="text-danger">erro ocorra.</span></dd>
+                        </dl>
+                        <pre>{
+  "stream": {
+    "data": "teste",
+    "updated_at": "2016-08-09 14:48:40",
+    "created_at": "2016-08-09 14:48:40"
+  }
+}
+                        </pre>
                     </div>
                 </div>
             </div>

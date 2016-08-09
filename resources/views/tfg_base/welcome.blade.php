@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="mirchu team make this design. mirchu web and technology blog">
-    <meta name="author" content="Waqas Hussain">
+    <meta name="description" content="TFG UNIFEI CCO - API RESFTUL">
+    <meta name="author" content="Jorge David">
     <link rel="icon" href="{{asset("assets/icons/favicon.ico")}}">
     <title>Jorge Junior - Página Pessoal</title>
 
@@ -19,11 +19,14 @@
     <script src="{{asset('assets/js/respond.min.js')}}"></script>
     <![endif]-->
 </head>
+<style>
+    /* Move down content because we have a fixed navbar that is 50px tall */
+    body {
+        padding-top: 50px;
+        padding-bottom: 20px;
+    }
+</style>
 <body>
-<!-- Preloader -->
-<div id="preloader">
-    <div id="status">&nbsp;</div>
-</div>
 <!-- Fixed navbar -->
 <div class="navbar main-menu navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -40,15 +43,39 @@
                     @else
                     <li><a href="{{route('user.profile')}}">{{$user->name}}</a></li>
                     <li><a href="{{route('user.logout')}}">Sair</a></li>
-                        @endif
+                    @endif
                 <!--<li><a data-scroll data-options="easing: easeOutQuart" href="#contact">Contact</a></li>-->
             </ul>
         </div>
         <!--/.nav-collapse -->
     </div>
 </div>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+    <div class="container">
+        <h1>API RESTFUL</h1>
+        @if(is_null($user))
+        <p>Bem vindo a API RESTFUL desenvolvida. Para acessa-la, basta fazer o login ou registrar-se.</p>
+        <p><a class="btn btn-primary btn-lg" href="{{route('user.registerpage')}}" role="button">Registrar</a></p>
+            @else
+            <p>Bem vindo a API RESTFUL desenvolvida. Acesse sua página e comesse a utilizar a api agora mesmo.</p>
+            <p><a class="btn btn-primary btn-lg" href="{{route('user.dashboard')}}" role="button">Acesse já</a></p>
+        @endif
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Documentação</h2>
+            @if(is_null($user))
+            <p>A documentação está disponível na área do usuário. Para acessa-la, é necessário fazer o login ou registrar-se.</p>
+                @else
+            <p>A documentação está disponivel neste <a href="{{route('user.docs')}}">link</a></p>
+            @endif
+        </div>
+    </div>
+</div>
 
-<a href="#" class="back-to-top"><i class="mdicon up"></i></a>
 
 <!-- Bootstrap core JavaScript
     ================================================== -->

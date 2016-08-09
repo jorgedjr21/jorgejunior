@@ -139,7 +139,7 @@
         <div class="pull-right hidden-xs">
             <b>Version</b> 2.3.3
         </div>
-        <strong>Trabalho Final de Graduação <a href="http://tfg.{{App::environment('APP_URL')}}">Jorge Junior</a>.</strong>
+        <strong>Trabalho Final de Graduação <a href="mailto:jorgedjr21@gmail.com">Jorge Junior</a>.</strong>
     </footer>
 
 </div>

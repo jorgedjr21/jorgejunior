@@ -17,6 +17,8 @@ use Dingo\Api\Routing\Helpers;
 use App\User;
 use App\Device;
 use App\Stream;
+use Validator;
+use Response;
 
 class StreamController extends BaseController
 {
@@ -41,10 +43,24 @@ class StreamController extends BaseController
         }])->where('dkey',$dkey)->first();
 
         if(!is_null($device) && !is_null($device->user)){
-            $data['device_id'] = $device->id;
-            $data['data'] = $request->input('data');
-            $stream = Stream::create($data);
-            return $stream;
+            $data = $request->all();
+
+            $messages  = [
+                'required' => 'O campo :attribute é obrigatório',
+            ];
+
+            $rules = [
+                'data'  =>'required',
+            ];
+
+            $validator = Validator::make($data,$rules,$messages);
+            if($validator->fails()){
+                return Response::json(['errors'=>$validator->errors()->all(),'status_code'=>400],400);
+            }else {
+                $data['device_id'] = $device->id;
+                $stream = Stream::create($data);
+                return $stream;
+            }
         }else{
             return $this->response->errorBadRequest('As chaves fornecidas estão incorretas, por favor, tente novamente');
         }
