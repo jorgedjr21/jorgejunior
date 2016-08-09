@@ -65,13 +65,18 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8">
             <h2>Documentação</h2>
             @if(is_null($user))
             <p>A documentação está disponível na área do usuário. Para acessa-la, é necessário fazer o login ou registrar-se.</p>
                 @else
             <p>A documentação está disponivel neste <a href="{{route('user.docs')}}">link</a></p>
             @endif
+        </div>
+        <div class="col-md-4">
+            <h2>Criado por</h2>
+            <p class="lead">Jorge Junior</p>
+            <p>jorgedjr21@gmail.com</p>
         </div>
     </div>
 </div>
