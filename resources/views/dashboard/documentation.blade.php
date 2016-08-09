@@ -127,6 +127,8 @@
                             <dt>Parâmetros: </dt>
                             <dd><i>name</i> - nome do dispositivo (OBRIGATÓRIO)</dd>
                             <dd><i>description</i> - descrição do dispositivo (OPCIONAL)</dd>
+                            <dt>OBS</dt>
+                            <dd>os dados devem ser enviados através do formato <i>x-www-form-urlencoded</i> para serem recebidos com sucesso</dd>
                             <dt>Parâmetros de URL:</dt>
                             <dd><i>:chavedeusuário</i> - chave de usuário disponível através de sua página de perfil</dd>
                             <dd><i>:chavedodispositivo</i> - chave do dispositivo em questão, que pode ser encontrada na página de dispositivos do usuário ou através das requisições na api</dd>
