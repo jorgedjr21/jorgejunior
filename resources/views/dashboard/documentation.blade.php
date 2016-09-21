@@ -50,6 +50,19 @@
             </div>
         </div>
     </div>
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <i class="fa fa-atention"></i>
+                    <h3 class="box-title text-danger">Informações Importantes</h3>
+                </div>
+                <div class="box-body">
+                    <p>Para aqueles que usam angular, devem utilizar o <i class="text-bold lead">$httpParamSerializerJQLike</i> para realizar requisições POST, PUT e DELETE</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="col-lg-6 col-md-6 col-sm-12">
 
         <div class="row">
