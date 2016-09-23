@@ -68,6 +68,7 @@ Route::group(['domain'=>'tfg.'.config('app.url')],function(){
     });
 
     Route::group(['middleware'=>['web','auth']],function(){
+
         Route::get('/dashboard',['as'=>'user.dashboard','uses'=>'UserController@dashboard']);
 
         Route::get('/logout',['as'=>'user.logout','uses'=>'UserController@logout']);
