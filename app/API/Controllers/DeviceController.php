@@ -9,16 +9,13 @@
 namespace App\API\Controllers;
 
 use Illuminate\Database\QueryException;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Dingo\Api\Routing\Helpers;
 use App\User;
 use App\Device;
 use Validator;
-use Dingo\Api\Http\Request;
 use Response;
+use Dingo\Api\Http\Request;
 
 class DeviceController extends BaseController
 {
@@ -29,7 +26,6 @@ class DeviceController extends BaseController
         $user = User::where('ukey',$ukey)->with(['country','devices'])->first();
 
             if(count($user) < 1){
-                //return ['code'=>'1','error'=>'Chave de usuário incorreta ou usuário inexistente!'];
                 return $this->response->errorBadRequest('Chave de usuário incorreta ou usuário inexistente!');
             }else {
                 return $user;
@@ -58,7 +54,6 @@ class DeviceController extends BaseController
             return $this->response->errorBadRequest('Chave de usuário incorreta ou usuário inexistente!');
         }else{
             $data = $request->all();
-
             $messages  = [
                 'required' => 'O campo :attribute é obrigatório',
                 'max'       => 'O campo :attribute deve ter no máximo :max caracteres'

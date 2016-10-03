@@ -9,12 +9,8 @@
 namespace App\API\Controllers;
 
 use Dingo\Api\Http\Request;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Dingo\Api\Routing\Helpers;
-use App\User;
 use App\Device;
 use App\Stream;
 use Validator;

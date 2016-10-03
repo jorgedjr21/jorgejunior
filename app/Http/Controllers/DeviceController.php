@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Auth;
 use Validator;
@@ -94,12 +95,18 @@ class DeviceController extends Controller
         }
     }
 
-    public function delete($device_id){
+    public function delete($device_id,Request $request){
         $device = Device::find($device_id);
-        if($device->delete()){
+        try{
+            $device->delete();
+            return redirect('/devices')->with('success','Dispositivo removido com sucesso!');
+        }catch(QueryException $e){
+            return redirect('/devices')->with('error',"Não foi possivel excluir o dispositivo, verifique se ele já transmitiu dados antes de exclui-lo!");
+        }
+        /*if($device->delete()){
             return redirect('/devices')->with('success','Dispositivo removido com sucesso!');
         }else{
             return redirect('/devices')->with('error','Não foi possivel deletar o dispositivo, tente novamente!');
-        }
+        }*/
     }
 }
